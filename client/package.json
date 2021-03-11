@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "my-site",
   "version": "1.0.0",
-  "description": "Simple + Modern React Boilerplate",
+  "description": "James (JJ) Valentine's Web Development Porfolio Page",
   "main": "index.js",
   "scripts": {
     "build": "",
@@ -9,16 +9,18 @@
     "dev": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/back2bas1cs/react-boilerplate"
-  },
-  "author": "JD",
+  "author": "James (JJ) Valentine",
   "license": "MIT",
-  "homepage": "https://github.com/back2bas1cs/react-boilerplate#readme",
+  "homepage": "https://jamesvalentine.dev",
   "keywords": [
-    "react",
-    "boilerplate"
+    "james",
+    "valentine",
+    "full",
+    "stack",
+    "developer",
+    "js",
+    "javascript",
+    "portfolio"
   ],
   "devDependencies": {
     "@babel/core": "^7.13.10",

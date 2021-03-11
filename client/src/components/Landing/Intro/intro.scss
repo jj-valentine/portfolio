@@ -1,0 +1,43 @@
+.intro-container {
+  position: absolute;
+  z-index: 100;
+  font-family: "Trebuchet MS", "Helvetica Neue", "Helvetica";
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 60vw;
+  // pointer-events: none;
+  color: white;
+  animation: animate 2s linear infinite;
+
+  @keyframes animate {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .intro-header {
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 2vw;
+    font-size: 5vw;
+    font-family: "Menlo";
+    transition: 1s;
+    border-color: lightcoral;
+
+    &:hover {
+      cursor: pointer;
+      border-color: white;
+      opacity: .7;
+    }
+  }
+  
+  .intro-text {
+    margin: 0px;
+    font-size: 3vw;
+  }
+}
+
