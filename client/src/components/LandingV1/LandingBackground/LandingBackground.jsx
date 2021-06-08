@@ -27,12 +27,12 @@ function LandingBackground() {
   function generateViewportDimensions() {
     const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-    return { vw, vh }
+    return { vw, vh };
   }
 
   function buildHexRows() {
     let displayRows = [];
-    for (let row = 0; row < Math.floor(viewportDimensions.vh / (HEX_HEIGHT * .7)) + 1; row++) {
+    for (let row = 0; row < Math.floor((viewportDimensions.vh / 2.5) / (HEX_HEIGHT * 0.7)) + 1; row++) {
       let displayHexagons = []
       for (let hex = 0; hex < Math.ceil(viewportDimensions.vw / HEX_WIDTH) + 1; hex++) {
         displayHexagons.push(<div key={`${row}${hex}`} className="hexagon"></div>);

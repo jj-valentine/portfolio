@@ -1,0 +1,122 @@
+@use "../../colors.scss";
+
+.bottom-shape-divider {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 202px;
+    transform: rotateY(180deg);
+    z-index: 4;
+  }
+
+  #layer-2 {
+    width: calc(110% + 1.3px);
+    height: 260px;
+    opacity: 30%;
+    bottom: -12px;
+    left: -40px;
+    z-index: 3;
+  }
+
+  #layer-3 {
+    width: calc(122% + 1.3px);
+    height: 314px;
+    opacity: 20%;
+    bottom: -20px;
+    left: -96px;
+    z-index: 2;
+  }
+
+  // SVG fill color
+  path {
+    fill: colors.$white;
+  }
+}
+
+// .wave {
+//   animation: dividerWaveOne 60s linear infinite;
+// }
+
+// @keyframes dividerWaveOne {
+//   50% {
+//     left: -20px;
+//     bottom: -40px;
+//   }
+
+//   100% {
+//     left: 75px;
+//     bottom: 40px;
+//   }
+// }
+
+/* For TABLET devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .bottom-shape-divider {
+    svg {
+      width: calc(100% + 1.3px);
+      height: 170px;
+    }
+
+    #layer-2 {
+      height: 230px;
+      bottom: -20px;
+      left: -40px;
+    }
+
+    #layer-3 {
+      width: calc(118% + 1.3px);
+      height: 270px;
+      bottom: -20px;
+      left: -58px;
+    }
+  }
+}
+
+/* For MOBILE devices */
+@media (max-width: 767px) {
+  .bottom-shape-divider {
+    svg {
+      width: calc(100% + 1.3px);
+      height: 111px;
+    }
+
+    #layer-2 {
+      width: calc(110% + 1.3px);
+      height: 152px;
+      bottom: -10px;
+      left: -20px;
+
+    }
+
+    #layer-3 {
+      width: calc(126% + 1.3px);
+      height: 186px;
+      bottom: -10px;
+      left: -50px;
+    }
+  }
+}
+
+.animate-shape-divider-enter {
+  opacity: 0;
+  transform: translateY(60%);
+}
+
+.animate-shape-divider-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: 0.75s opacity ease-in-out, 0.75s transform ease-in-out;
+}
+
+.animate-shape-divider-exit {
+  opacity: 0;
+  transform: translateY(0)
+}

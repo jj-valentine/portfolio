@@ -1,0 +1,34 @@
+@use "../../colors.scss";
+
+.header-container {  
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  z-index: 100;
+}
+
+.header-on-scroll {
+  background-color: #282C34CC;
+  box-shadow: 0 10px 30px -10px colors.$secondary-bg;
+}
+
+.animate-header-enter {
+  transform: translateY(-100px);
+}
+
+.animate-header-enter-active {
+  transform: translateY(0);
+  transition: 0.75s transform ease-out;
+}
+
+.animate-header-exit {
+  transform: translateY(0);
+  transition: 0.75s transform ease-in;
+
+}
+
+.animate-header-exit-active {
+  transform: translateY(-100px)
+}

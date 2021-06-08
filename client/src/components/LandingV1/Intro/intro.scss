@@ -1,0 +1,27 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.outer-container {
+  position: absolute;
+}
+
+.intro-container {
+  position: relative;
+  z-index: 100;
+  max-width: 80vw;
+  font-family: "Trebuchet MS", "Helvetica Neue", "Helvetica";
+  color: white;
+
+  .intro-header {
+    position: relative;
+    letter-spacing: .2vw;
+    font-size: 5vw;
+    height: 6vw;
+    overflow: hidden;
+    font-family: "Menlo";
+  }
+}
+

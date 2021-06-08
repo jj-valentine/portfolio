@@ -3,6 +3,7 @@ const path = require("path");
 module.exports = {
   entry: "./src/index.js",
   output: {
+    publicPath: "/",
     path: path.resolve(__dirname, "public"),
     filename: "bundle.js"
   },
@@ -14,7 +15,7 @@ module.exports = {
     port: 3000,
     contentBase: path.join(__dirname, "public"),
     hot: true,
-    // historyApiFallback: { index: "/index.html" }
+    historyApiFallback: true
   },
   module: {
     rules: [
