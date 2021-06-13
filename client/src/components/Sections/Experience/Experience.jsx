@@ -12,4 +12,4 @@ function Experience({ sectionId }) {
   );
 }
 
-export default Experience;
+export default React.memo(Experience);

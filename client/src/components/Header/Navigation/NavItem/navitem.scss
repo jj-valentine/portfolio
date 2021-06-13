@@ -21,6 +21,7 @@
 .animate-nav-item-enter-active {
   opacity: 1;
   transform: translateY(0);
+  // -webkit-transition: 3s opacity ease-in-out, 3s transform ease-in-out;
   transition: 0.5s opacity ease-in-out, 0.5s transform ease-in-out;
   transition-delay: calc(var(--order) * 100ms);
 }

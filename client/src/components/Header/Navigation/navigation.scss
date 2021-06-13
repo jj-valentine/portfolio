@@ -4,3 +4,17 @@
   height: 100%;
   margin-right: 5vw;
 }
+
+.nav-list {
+  /* for MOBILE devices */
+  @media only screen and (max-width: 767px), only screen and (min-device-width: 240px) and (max-device-width: 520px) and (orientation: portrait)
+  {
+    display: none;
+  }
+
+  /* for ALL OTHER devices */
+  @media only screen and (min-width: 768px), only screen and (max-device-width: 610px) and (orientation: landscape)
+  {
+    display: block;
+  }
+}

@@ -9,7 +9,6 @@ import DispatchContext from "./DispatchContext.jsx";
 import Loading from "./Loading/Loading.jsx";
 import Header from "./Header/Header.jsx";
 import Welcome from "./Welcome/Welcome.jsx";
-import ShapeDivider from "./ShapeDivider/ShapeDivider.jsx";
 import About from "./Sections/About/About.jsx";
 import Experience from "./Sections/Experience/Experience.jsx";
 import Contact from "./Sections/Contact/Contact.jsx";
@@ -18,37 +17,36 @@ import "../index.scss";
 
 function App() {
   const initialState = {
-    refreshCount: 0,
     isLoading: true,
+    animateOnEnter: false,
     sections: {
       "about": About,
       "experience": Experience,
       "contact": Contact
     },
     header: {
-      animate: false,
-      isVisible: true
+      transitioning: false,
+      isVisible: !window.location.hash
     },
     scroll: {
       prevHeight: 0
-    },
-    animateOnEnter: false
+    }
   };
 
   const appReducer = (draft, action) => {
     const value = action.value;
     switch (action.type) {
-      case "refresh":
-        draft.refreshCount++;
-        break;
-      case "isLoading":
+      case "loading":
         draft.isLoading = value;
         break;
       case "toggleEntranceAnimations":
         draft.animateOnEnter = true;
         break;
-      case "isHeaderVisible":
+      case "toggleHeaderVisibility":
         draft.header.isVisible = value;
+        break;
+      case "toggleHeaderTransition":
+        draft.header.transitioning = value;
         break;
       case "setScrollHeight":
         draft.scroll.prevHeight = value;
@@ -59,26 +57,20 @@ function App() {
   const [state, dispatch] = useImmerReducer(appReducer, initialState);
 
   useEffect(() => {
-    function handleReload() {
-      dispatch({ type: "refresh" });
-      if (!state.isLoading) dispatch({ type: "isLoading", value: true });
-    }
-
-    window.addEventListener("beforeunload", handleReload);
-    return () => {
-      window.removeEventListener("beforeunload", handleReload);
-    };
-  }, []);
-
-  useEffect(() => {
     let loadingTimeout = setTimeout(() => {
-      dispatch({ type: "isLoading", value: false });
-    }, 3000);
+      dispatch({ type: "loading", value: false });
+      // scroll to current hash path (router isn't doing this because components aren't loaded yet)
+      if (window.location.hash) {
+        const id = window.location.hash.replace("#", "");
+        const component = document.getElementById(id);
+        component.scrollIntoView();
+      }
+    }, 5000);
 
     return () => {
       clearTimeout(loadingTimeout);
     };
-  }, [state.refreshCount]);
+  }, []);
 
   useEffect(() => {
     if (!state.isLoading) {
@@ -95,17 +87,18 @@ function App() {
 
   function handleScroll() {
     let scrollHeight = window.pageYOffset;
-    if (scrollHeight > 200) {
-      if (scrollHeight > state.scroll.prevHeight) {
-        dispatch({ type: "isHeaderVisible", value: true });
+    if (scrollHeight > 200 && !state.header.transitioning) {
+      if (scrollHeight < state.scroll.prevHeight) {
+        dispatch({ type: "toggleHeaderVisibility", value: true });
       } else {
-        dispatch({ type: "isHeaderVisible", value: false });
+        dispatch({ type: "toggleHeaderVisibility", value: false });
       }
-    }
-    
+      dispatch({ type: "toggleHeaderTransition", value: true });
+      setTimeout(() => {
+        dispatch({ type: "toggleHeaderTransition", value: false });
+      }, 300);
+    } 
     dispatch({ type: "setScrollHeight", value: scrollHeight });
-    // hide nav bar if we scroll past Y (i.e. 20 page offset) 
-    // show nav bar if we're at the top of the page (i.e. > 20) and if we're scrolling up
   }
 
   const sectionComponents = Object.keys(state.sections).map((section, i) => {
@@ -113,33 +106,21 @@ function App() {
     return <ComponentName key={i} sectionId={section} />
   });
 
-  const bottomShapeDividers = new Array(3)
-    .fill(null)
-    .map((divider, i) => {
-      return (
-        <CSSTransition key={i} timeout={750} in={state.animateOnEnter} classNames="animate-shape-divider">
-          <ShapeDivider key={i} layerNumber={i + 1} />
-        </CSSTransition>
-      );
-    });
-
-  if (state.isLoading) return <Loading />;
+  if (state.isLoading) return <Loading animate={state.isLoading}/>;
 
   return (
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
           <Router>
-            <CSSTransition unmountOnExit timeout={750} in={!state.header.isVisible} classNames="animate-header">
+            <CSSTransition unmountOnExit timeout={500} in={state.header.isVisible} classNames="animate-header">
               <Header />   
             </CSSTransition>
-            { bottomShapeDividers }
             <Switch>
               <Route exact path="/" component={Welcome} />        
               {/* <Route path="*">
                 <NotFound />
               </Route> */}
               <Route render={() => <Redirect to="/" />} />
-
             </Switch> 
             { sectionComponents }
           </Router>

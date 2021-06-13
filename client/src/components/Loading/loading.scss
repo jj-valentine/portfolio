@@ -59,6 +59,8 @@
     border-top-color: colors.$blue;
     border-left-color: colors.$blue;
   }
+
+  
 }
 
 @keyframes waves {
@@ -70,3 +72,21 @@
     transform: rotate(90deg);
   }
 }
+
+// .animate-loader-enter {
+//   transform: scale(1) rotate(0deg);
+// }
+
+// .animate-loader-enter-active {
+//   transform: scale(1) rotate(0deg);
+//   transition: 1s transform ease-in;
+// }
+
+// .animate-loader-exit {
+//   transform: scale(1.5) rotate(180deg);
+//   transition: 1s transform ease-in;
+// }
+
+// .animate-loader-exit-active {
+//   transform: scale(0.4) rotate(0deg);
+// }

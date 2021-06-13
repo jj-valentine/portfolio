@@ -3,6 +3,7 @@ import React from "react";
 import "./pagesection.scss";
 
 function PageSection(props) {
+  console.log("test");
   return (
     <section id={props.sectionId}>
       { props.children }

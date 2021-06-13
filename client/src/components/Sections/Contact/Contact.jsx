@@ -12,4 +12,4 @@ function Contact({ sectionId }) {
   );
 }
 
-export default Contact;
+export default React.memo(Contact);

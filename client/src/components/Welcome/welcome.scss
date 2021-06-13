@@ -1,3 +1,18 @@
-h1 {
-  height: 1000px;
+#welcome {
+  position: relative;
+  height: 789px;
+}
+
+/* For TABLET devices */
+@media (min-width: 768px) and (max-width: 1023px) {
+  #welcome {
+    height: 600px;
+  }
+}
+
+/* For MOBILE devices */
+@media (max-width: 767px) {
+  #welcome {
+    height: 550px;
+  }
 }

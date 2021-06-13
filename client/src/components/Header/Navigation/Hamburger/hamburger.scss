@@ -1,0 +1,406 @@
+@use "../../../../colors.scss";
+
+$top-color: colors.$yellow;		  
+$middle-color: colors.$red;
+$bottom-color: colors.$blue;
+$x-color: colors.$white;
+$animation-time: 0.6s;
+$scale: 0.8;		
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.hamburger {
+  transform: scale($scale);
+  margin: 40px auto;
+  position: relative;
+  display: none;
+  width: 68px;
+  height: 68px;
+  background-color: transparent;
+  -webkit-touch-callout: none;
+	user-select: none;
+  cursor: pointer;
+
+  /* for MOBILE devices */
+  @media only screen and (max-width: 767px), only screen and (min-device-width: 240px) and (max-device-width: 520px) and (orientation: portrait)
+  {
+    transform: scale(0.7);
+    display: block;  
+  }
+
+  /* for ALL OTHER devices */
+  @media only screen and (min-width: 768px), only screen and (max-device-width: 610px) and (orientation: landscape)
+  {
+    display: none;
+  }
+}
+
+/* transition mask */
+.path-burger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 68px;
+  width: 68px;
+  // browser support requires two masks
+  mask: url(#mask);
+  -webkit-mask-box-image: url(https://raygun.io/upload/mask.svg);
+}
+
+.animate-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+// creates small square that rotates behind SVG mask -- gives the appearance of the line animating
+.path-rotation {
+  height: 34px;
+  width: 34px;
+  margin: 34px 34px 0 0;
+  transform: rotate(0deg);
+  transform-origin: 100% 0;
+  &:before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 34px;
+    margin: 0 4px 0 0;
+  }
+}
+
+/* box rotation animation */
+@keyframes rotate-out {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  40% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-in {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  40% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.hamburger.is-open {
+  .path {
+    animation: dash-in $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+
+  .animate-path {
+    animation: rotate-in $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+.hamburger.is-closed {
+  .path {
+    animation: dash-out $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+
+  .animate-path {
+    animation: rotate-out $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+.path {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  stroke-linejoin: round;
+}
+
+@keyframes dash-in {
+  0% {
+    stroke-dashoffset: 240;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dash-out {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  40% {
+    stroke-dashoffset: 240;
+  }
+
+  100% {
+    stroke-dashoffset: 240;
+  }
+}
+
+.burger-icon {
+  position: absolute;
+  padding: 20px 16px;
+  height: 68px;
+  width: 68px;
+}
+
+.burger-container {
+  position: relative;
+  height: 28px;
+  width: 36px;
+}
+
+.burger-top,
+.burger-middle,
+.burger-bottom {
+  position: absolute;
+  display: block;
+  height: 4px;
+  width: 36px;
+  border-radius: 2px;
+  background-color: $middle-color;
+}
+
+.burger-top {
+  top: 0;
+  transform-origin: 34px 2px;
+  background-color: $top-color;
+}
+
+.burger-bottom {
+  bottom: 0;
+  transform-origin: 34px 2px;
+  background-color: $bottom-color;
+}
+
+// button is relative parent
+.burger-middle {
+  top: 12px;
+}
+
+/* burger ring container */
+.burger-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 68px;
+  height: 68px;
+}
+
+.svg-ring {
+  width: 68px;
+  height: 68px;
+}
+
+/* burger top/bottom */
+.hamburger.is-open {
+  .burger-top {
+    animation: burger-top-out $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+
+  .burger-bottom {
+    animation: burger-bottom-out $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+.hamburger.is-closed {
+  .burger-top {
+    animation: burger-top-in $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+
+  .burger-bottom {
+    animation: burger-bottom-in $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes burger-top-out {
+  0% {
+    left: 0;
+    top: 0;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    left: 0;
+    top: 0;
+    transform: rotate(15deg);
+  }
+
+  80% {
+    left: -5px;
+    top: 0;
+    transform: rotate(-60deg);
+    background-color: $x-color;
+  }
+
+  100% {
+    left: -5px;
+    top: 1px;
+    transform: rotate(-45deg);
+    background-color: $x-color;
+  }
+}
+
+@keyframes burger-bottom-out {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+
+  20% {
+    left: 0;
+    transform: rotate(-15deg);
+  }
+
+  80% {
+    left: -5px;
+    transform: rotate(60deg);
+    background-color: $x-color;
+  }
+
+  100% {
+    left: -5px;
+    transform: rotate(45deg);
+    background-color: $x-color;
+  }
+}
+
+@keyframes burger-top-in {
+  0% {
+    left: -5px;
+    bottom: 0;
+    transform: rotate(-45deg);
+  }
+
+  20% {
+    left: -5px;
+    bottom: 0;
+    transform: rotate(-60deg);
+  }
+
+  80% {
+    left: 0;
+    bottom: 0;
+    transform: rotate(15deg);
+    background-color: $top-color;
+  }
+
+  100% {
+    left: 0;
+    bottom: 1px;
+    transform: rotate(0deg);
+    background-color: $top-color;
+  }
+}
+
+@keyframes burger-bottom-in {
+  0% {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+
+  20% {
+    left: -5px;
+    bottom: 0;
+    transform: rotate(60deg);
+  }
+
+  80% {
+    left: 0;
+    bottom: 0;
+    transform: rotate(-15deg);
+    background-color: $bottom-color;
+  }
+
+  100% {
+    left: 0;
+    transform: rotate(0deg);
+    background-color: $bottom-color;
+  }
+}
+
+/* burger middle */
+.hamburger.is-open {
+  .burger-middle {
+    animation: burger-middle-out $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+.hamburger.is-closed {
+  .burger-middle {
+    animation: burger-middle-in $animation-time linear normal;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes burger-middle-in {
+  0% {
+    width: 0;
+    left: 36px;
+  }
+
+  40% {
+    width: 0;
+    left: 40px;
+  }
+
+  80% {
+    width: 36px;
+    left: -6px;
+  }
+
+  100% {
+    width: 36px;
+    left: 0px;
+  }
+}
+
+@keyframes burger-middle-out {
+  0% {
+    width: 36px;
+    left: 0px;
+  }
+
+  20% {
+    width: 42px;
+    left: -6px;
+  }
+
+  40% {
+    width: 0;
+    left: 40px;
+  }
+
+  100% {
+    width: 0;
+    left: 36px;
+  }
+}

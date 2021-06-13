@@ -12,4 +12,4 @@ function About({ sectionId }) {
   );
 }
 
-export default About;
+export default React.memo(About);

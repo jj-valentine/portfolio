@@ -1,6 +1,8 @@
 @use "../../../colors.scss";
 
-
 #about {
+  position: relative;
   background-color: colors.$white;
+  height: 4000px;
+  z-index: 10;
 }

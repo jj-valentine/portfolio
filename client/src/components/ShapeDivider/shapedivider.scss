@@ -3,7 +3,7 @@
 .bottom-shape-divider {
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -5px;
   width: 100%;
   overflow: hidden;
   line-height: 0;
@@ -57,7 +57,7 @@
 //   }
 // }
 
-/* For TABLET devices */
+/* for TABLET devices */
 @media (min-width: 768px) and (max-width: 1023px) {
   .bottom-shape-divider {
     svg {
@@ -80,7 +80,7 @@
   }
 }
 
-/* For MOBILE devices */
+/* for MOBILE devices */
 @media (max-width: 767px) {
   .bottom-shape-divider {
     svg {
@@ -93,7 +93,6 @@
       height: 152px;
       bottom: -10px;
       left: -20px;
-
     }
 
     #layer-3 {
@@ -106,17 +105,14 @@
 }
 
 .animate-shape-divider-enter {
-  opacity: 0;
   transform: translateY(60%);
 }
 
 .animate-shape-divider-enter-active {
-  opacity: 1;
   transform: translateY(0);
-  transition: 0.75s opacity ease-in-out, 0.75s transform ease-in-out;
+  transition: 0.75s transform ease-in-out;
 }
 
 .animate-shape-divider-exit {
-  opacity: 0;
-  transform: translateY(0)
+  transform: translateY(0);
 }

@@ -18,17 +18,16 @@
   transform: translateY(-100px);
 }
 
-.animate-header-enter-active {
-  transform: translateY(0);
-  transition: 0.75s transform ease-out;
+.animate-header-enter.animate-header-enter-active {
+  transform: translateY(0px);
+  transition: 0.5s transform ease-out;
 }
 
 .animate-header-exit {
-  transform: translateY(0);
-  transition: 0.75s transform ease-in;
-
+  transform: translateY(0px);
 }
 
 .animate-header-exit-active {
-  transform: translateY(-100px)
+  transform: translateY(-100px);
+  transition: 0.5s transform ease-in;
 }
