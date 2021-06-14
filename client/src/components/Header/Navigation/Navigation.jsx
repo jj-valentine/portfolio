@@ -15,10 +15,6 @@ function Navigation() {
     return <NavItem key={i} section={section} animateEntrance={state.animateOnEnter} order={i + 1} />;
   });
 
-  function toggleBurgerMenu() {
-    
-  }
-
   return (
     <nav className="nav-container">
       <ul className="nav-list">
@@ -27,7 +23,7 @@ function Navigation() {
         </TransitionGroup>
         {/* <button>Resume</button> */}
       </ul>
-      <Hamburger toggleBurgerMenu={toggleBurgerMenu} />
+      <Hamburger />
     </nav>
   );
 }

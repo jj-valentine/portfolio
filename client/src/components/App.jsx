@@ -26,7 +26,8 @@ function App() {
     },
     header: {
       transitioning: false,
-      isVisible: !window.location.hash
+      isVisible: !window.location.hash,
+      isMenuOpen: false
     },
     scroll: {
       prevHeight: 0
@@ -51,6 +52,9 @@ function App() {
       case "setScrollHeight":
         draft.scroll.prevHeight = value;
         break;
+      case "toggleNavigationMenu":
+        draft.header.isMenuOpen = value;
+        break;
     }
   };
 
@@ -73,9 +77,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (!state.isLoading) {
-      dispatch({ type: "toggleEntranceAnimations" });
-    }
+    if (!state.isLoading) dispatch({ type: "toggleEntranceAnimations" });
   }, [state.isLoading]);
 
   useEffect(() => {
@@ -113,8 +115,9 @@ function App() {
         <DispatchContext.Provider value={dispatch}>
           <Router>
             <CSSTransition unmountOnExit timeout={500} in={state.header.isVisible} classNames="animate-header">
-              <Header />   
+              <Header />
             </CSSTransition>
+
             <Switch>
               <Route exact path="/" component={Welcome} />        
               {/* <Route path="*">

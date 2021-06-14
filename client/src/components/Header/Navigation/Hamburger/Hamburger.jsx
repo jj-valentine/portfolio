@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+// Component(s)
+import DispatchContext from "../../../DispatchContext.jsx";
 // Style(s)
 import "./hamburger.scss";
 
-function Hamburger({ toggleBurgerMenu }) {
+function Hamburger() {
+  const dispatch = useContext(DispatchContext);
   const [burgerStateClass, setBurgerStateClass] = useState(null);
 
   useEffect(() => {
@@ -18,10 +21,13 @@ function Hamburger({ toggleBurgerMenu }) {
 
   function toggleBurgerState(e) {
     e.preventDefault();
-    toggleBurgerMenu(e);
-    if (!burgerStateClass || burgerStateClass === "is-closed") setBurgerStateClass("is-open");
-    else setBurgerStateClass("is-closed");
-
+    if (!burgerStateClass || burgerStateClass === "is-closed") {
+      setBurgerStateClass("is-open");
+      dispatch({ type: "toggleNavigationMenu", value: true });
+    } else {
+      setBurgerStateClass("is-closed");
+      dispatch({ type: "toggleNavigationMenu", value: false });
+    }
   }
 
   return (

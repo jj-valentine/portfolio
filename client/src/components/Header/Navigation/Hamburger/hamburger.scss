@@ -13,7 +13,7 @@ $scale: 0.8;
 
 .hamburger {
   transform: scale($scale);
-  margin: 40px auto;
+  margin-top: 5px;
   position: relative;
   display: none;
   width: 68px;
@@ -22,6 +22,7 @@ $scale: 0.8;
   -webkit-touch-callout: none;
 	user-select: none;
   cursor: pointer;
+  align-self: flex-start;
 
   /* for MOBILE devices */
   @media only screen and (max-width: 767px), only screen and (min-device-width: 240px) and (max-device-width: 520px) and (orientation: portrait)

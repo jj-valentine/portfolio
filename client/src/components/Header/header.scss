@@ -7,6 +7,16 @@
   height: 80px;
   width: 100%;
   z-index: 100;
+  transition: 0.5s height ease-in-out;
+}
+
+.header-container.open-menu {
+  height: 100%;
+  background-color: #282C34CC;
+}
+
+.header-container.close-menu { 
+  height: 80px;
 }
 
 .header-on-scroll {
@@ -14,11 +24,13 @@
   box-shadow: 0 10px 30px -10px colors.$secondary-bg;
 }
 
+/* animate header on scroll */
 .animate-header-enter {
   transform: translateY(-100px);
+
 }
 
-.animate-header-enter.animate-header-enter-active {
+.animate-header-enter-active {
   transform: translateY(0px);
   transition: 0.5s transform ease-out;
 }
@@ -30,4 +42,8 @@
 .animate-header-exit-active {
   transform: translateY(-100px);
   transition: 0.5s transform ease-in;
+}
+
+.header-logo-link {
+  text-decoration: none;
 }
