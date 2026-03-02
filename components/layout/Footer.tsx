@@ -119,7 +119,7 @@ export function Footer() {
             href="/"
             className="text-sm font-bold text-fg-muted hover:text-fg tracking-[-0.5px] transition-colors"
           >
-            jamesvalentine.dev
+            james-valentine.com
           </Link>
         </div>
       </div>

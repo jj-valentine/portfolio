@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/mdx";
 
-const SITE_URL = "https://jamesvalentine.dev";
+const SITE_URL = "https://james-valentine.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts().map((post) => ({
