@@ -1,0 +1,36 @@
+---
+title: "Hello World — Building This Site"
+description: "How and why I built my personal site with Next.js 15, Tailwind v4, and MDX."
+date: "2026-03-01"
+category: "Engineering"
+tags: ["nextjs", "tailwind", "mdx"]
+featured: true
+---
+
+This is the inaugural post on my personal site. I built it to have a home for long-form writing about software, physics, and the other things I care about.
+
+## The Stack
+
+- **Next.js 15** with the App Router and React Server Components
+- **Tailwind CSS v4** using the new `@theme` block for design tokens
+- **MDX** via `next-mdx-remote` for rich blog content
+- **Framer Motion** for the role-cycling animation on the home page
+- **Vercel** for hosting
+
+## Why a blog?
+
+I wanted a place to write about technical topics in depth — the kind of posts I wish existed when I was learning. Expect posts about web development, physics, math, and maybe some dog training.
+
+## Code Example
+
+Here's a simple React component:
+
+```tsx
+export function Greeting({ name }: { name: string }) {
+  return <h1>Hello, {name}!</h1>;
+}
+```
+
+## What's Next
+
+More posts coming soon on TypeScript patterns, physics simulations, and building production Next.js apps.
