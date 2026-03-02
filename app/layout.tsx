@@ -15,13 +15,35 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://jamesvalentine.dev";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "James Valentine",
     template: "%s | James Valentine",
   },
   description:
     "Software engineer, educator, and entrepreneur. Building things that matter.",
+  openGraph: {
+    title: "James Valentine",
+    description:
+      "Software engineer, educator, and entrepreneur. Building things that matter.",
+    url: SITE_URL,
+    siteName: "James Valentine",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "James Valentine",
+    description:
+      "Software engineer, educator, and entrepreneur. Building things that matter.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
