@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  /* Graphite palette */
+  --color-bg: #070707;
+  --color-announcement: #111111;
+  --color-surface: #232323;
+  --color-border: rgba(119, 119, 119, 0.3);
+  --color-border-subtle: #232323;
+  --color-fg: #fafafa;
+  --color-fg-muted: rgba(255, 255, 255, 0.6);
+  --color-fg-sub: rgba(255, 255, 255, 0.75);
+  --color-muted: #777777;
+  --color-accent: #3b82f6;
+  --color-primary-btn: #e8e8e8;
+  --color-primary-text: #111111;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-full: 9999px;
+}
+
+html {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prose styles for MDX blog posts */
+.prose {
+  --tw-prose-body: var(--color-fg);
+  --tw-prose-headings: var(--color-fg);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bold: var(--color-fg);
+  --tw-prose-code: var(--color-fg);
+  --tw-prose-quotes: var(--color-fg-sub);
+  --tw-prose-quote-borders: var(--color-surface);
+  color: var(--color-fg);
+  max-width: 72ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.prose a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
+.prose blockquote {
+  border-left: 2px solid var(--color-surface);
+  color: var(--color-fg-sub);
+  font-style: normal;
+}
+
+.prose code {
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: 0.15em 0.35em;
+  font-size: 0.875em;
+  font-family: var(--font-mono);
+}
+
+.prose pre {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 1.5em 0;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.prose img {
+  border-radius: var(--radius-md);
+}
+
+.prose hr {
+  border-color: var(--color-border);
+}
+
+/* rehype-pretty-code styles */
+[data-rehype-pretty-code-figure] {
+  margin: 1.5em 0;
+}
+
+[data-rehype-pretty-code-figure] pre {
+  background: var(--color-announcement) !important;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem !important;
+  overflow-x: auto;
+}
+
+[data-rehype-pretty-code-figure] code {
+  display: grid;
+  font-family: var(--font-mono);
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  padding: 0 0.25rem;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(255, 255, 255, 0.06);
+  border-left: 2px solid var(--color-accent);
+  margin-left: -0.25rem;
+  padding-left: calc(0.25rem - 2px);
+}
+
+/* Selection */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+}
