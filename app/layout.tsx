@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans, Geist_Mono } from "next/font/google";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -24,21 +25,15 @@ export const metadata: Metadata = {
     template: "%s | James Valentine",
   },
   description:
-    "Software engineer, educator, and entrepreneur. Building things that matter.",
+    "Software engineer, educator, and dog trainer. Building things at the intersection of software, science, and applied learning.",
   openGraph: {
     title: "James Valentine",
     description:
-      "Software engineer, educator, and entrepreneur. Building things that matter.",
+      "Software engineer, educator, and dog trainer. Building things at the intersection of software, science, and applied learning.",
     url: SITE_URL,
     siteName: "James Valentine",
     locale: "en_US",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "James Valentine",
-    description:
-      "Software engineer, educator, and entrepreneur. Building things that matter.",
   },
   robots: {
     index: true,
@@ -52,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${geistMono.variable}`}>
       <body className="bg-bg text-fg antialiased">
         <AnnouncementBar />
         <Nav />

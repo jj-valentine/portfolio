@@ -7,18 +7,19 @@ import { Button } from "@/components/ui/Button";
 
 const FEATURED_PROJECTS = [
   {
-    title: "real-k9.com",
+    title: "REAL K-9",
     description:
-      "Full-stack platform for my dog training business. Booking, content, and client management.",
+      "Professional dog training serving Greater Seattle. Service-level obedience, behavior modification, and handler education.",
     tech: ["Next.js", "TypeScript", "Tailwind", "Vercel"],
     href: "https://real-k9.com",
     external: true,
+    image: "/screenshots/realk9-dark-hero.png",
   },
   {
-    title: "Portfolio",
+    title: "AgentHQ",
     description:
-      "This site. Graphite-inspired dark design, MDX blog, Framer Motion animations.",
-    tech: ["Next.js 15", "MDX", "Framer Motion", "Tailwind v4"],
+      "Developer dashboard for orchestrating and monitoring Claude-powered AI agents across concurrent runs.",
+    tech: ["React", "TypeScript", "Vite", "Claude API"],
     href: "/projects",
   },
 ];
@@ -45,9 +46,9 @@ export default function Home() {
               About
             </p>
             <p className="text-lg text-fg-sub max-w-[640px] leading-relaxed">
-              I&apos;m a software engineer with degrees in physics and
-              mathematics. I build web applications, teach STEM subjects, and run
-              a dog training business on the side. I care about clean code,
+              I&apos;m a software engineer with a background in physics and
+              mathematics. I build web applications, teach STEM subjects, and
+              run a professional dog training business. I care about clean code,
               clear thinking, and doing things that matter.
             </p>
             <Button variant="ghost" href="/about" className="mt-6">
@@ -72,20 +73,32 @@ export default function Home() {
 
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {FEATURED_PROJECTS.map((project) => (
-              <Card key={project.title} className="p-6 md:p-8 flex flex-col">
-                <h3 className="text-xl font-medium text-fg flex items-center gap-2">
-                  {project.title}
-                  {project.external && (
-                    <ExternalLink size={14} className="text-muted" />
-                  )}
-                </h3>
-                <p className="mt-2 text-sm text-fg-muted leading-relaxed flex-1">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <Badge key={t}>{t}</Badge>
-                  ))}
+              <Card
+                key={project.title}
+                className="flex flex-col overflow-hidden group rainbow-hover"
+              >
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover object-top"
+                  />
+                )}
+                <div className="p-6 md:p-8 flex flex-col flex-1">
+                  <h3 className="text-xl font-medium text-fg flex items-center gap-2">
+                    {project.title}
+                    {project.external && (
+                      <ExternalLink size={14} className="text-muted" />
+                    )}
+                  </h3>
+                  <p className="mt-2 text-sm text-fg-muted leading-relaxed flex-1">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <Badge key={t}>{t}</Badge>
+                    ))}
+                  </div>
                 </div>
               </Card>
             ))}
@@ -137,20 +150,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Dog training callout */}
+      {/* REAL K-9 callout */}
       <section className="py-20">
         <div className="max-w-[1158px] mx-auto px-4 md:px-8">
           <Card className="p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
               <p className="text-xs font-medium uppercase tracking-[0.05em] text-muted mb-3">
-                Dog Training
+                REAL K-9
               </p>
               <h2 className="text-2xl font-medium text-fg">
-                I also train dogs.
+                Real training. Real results.
               </h2>
               <p className="mt-2 text-fg-sub max-w-[480px]">
-                Professional balanced training for dogs of all ages and breeds.
-                Check out my training site.
+                Service-level dog training in Greater Seattle — obedience,
+                behavior modification, and handler education. 250+ dogs trained.
               </p>
             </div>
             <Button

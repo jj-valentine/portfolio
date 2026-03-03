@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 export const metadata = {
   title: "About",
   description:
-    "Software engineer, physicist, mathematician, educator, dog trainer, entrepreneur.",
+    "Software engineer, physicist, educator, and dog trainer based in Seattle.",
 };
 
 export default function AboutPage() {
@@ -17,12 +17,12 @@ export default function AboutPage() {
       </h1>
       <p className="mt-6 text-lg text-fg-sub max-w-[640px] leading-relaxed">
         I&apos;m James Valentine — a software engineer with a background in
-        physics and mathematics, a passion for teaching, and a side career
-        training dogs.
+        physics, a passion for teaching, and a professional dog training
+        business. Based in Seattle.
       </p>
 
       <div className="mt-16 grid gap-8 md:grid-cols-2">
-        {/* Background */}
+        {/* Education */}
         <Card hover={false} className="p-8">
           <p className="text-xs font-medium uppercase tracking-[0.05em] text-muted mb-4">
             Background
@@ -30,18 +30,17 @@ export default function AboutPage() {
           <h2 className="text-2xl font-medium text-fg">Education</h2>
           <ul className="mt-4 space-y-3 text-fg-sub">
             <li>
-              <strong className="text-fg">B.S. Physics</strong> — with a focus
-              on computational methods and simulation
+              <strong className="text-fg">B.S. Physics</strong> — University of Washington
+              <span className="block text-sm text-muted mt-0.5">Departmental Honors · Dean&apos;s List · 2016</span>
             </li>
             <li>
-              <strong className="text-fg">B.S. Mathematics</strong> — emphasis
-              on applied math and mathematical modeling
+              <strong className="text-fg">Minor in Mathematics</strong> — applied math &amp; modeling
             </li>
           </ul>
           <p className="mt-6 text-fg-sub leading-relaxed">
-            My academic background gave me a rigorous foundation in
-            problem-solving, quantitative reasoning, and first-principles
-            thinking — skills that translate directly into building software.
+            A rigorous foundation in problem-solving, quantitative reasoning,
+            and first-principles thinking — skills that translate directly into
+            building software.
           </p>
         </Card>
 
@@ -54,13 +53,13 @@ export default function AboutPage() {
             Software Engineering
           </h2>
           <p className="mt-4 text-fg-sub leading-relaxed">
-            I build full-stack web applications with a focus on TypeScript,
+            12+ years building full-stack web applications with TypeScript,
             React, Next.js, and Node. I care about clean architecture,
             developer experience, and shipping things that work.
           </p>
           <p className="mt-4 text-fg-sub leading-relaxed">
-            Currently interested in AI-assisted tooling, developer productivity,
-            and the intersection of physics simulation and the web.
+            Currently focused on AI-assisted tooling, developer productivity,
+            and agentic systems.
           </p>
         </Card>
 
@@ -69,30 +68,49 @@ export default function AboutPage() {
           <p className="text-xs font-medium uppercase tracking-[0.05em] text-muted mb-4">
             Teaching
           </p>
-          <h2 className="text-2xl font-medium text-fg">Education & Mentoring</h2>
+          <h2 className="text-2xl font-medium text-fg">Education &amp; Instruction</h2>
           <p className="mt-4 text-fg-sub leading-relaxed">
-            I&apos;ve taught physics, math, and programming at various levels.
-            I believe the best way to learn is to build, and the best way to
-            teach is to make complex things feel simple.
+            20+ years teaching complex subjects — physics, mathematics, and
+            coding at various levels. I believe the best way to learn is to
+            build, and the best way to teach is to make complex things feel
+            simple.
+          </p>
+          <p className="mt-4 text-fg-sub leading-relaxed">
+            Also the lead instructor at REAL K-9, teaching handler mechanics
+            and canine psychology to clients.
           </p>
         </Card>
 
-        {/* Dog training */}
+        {/* Dog Training */}
         <Card hover={false} className="p-8">
           <p className="text-xs font-medium uppercase tracking-[0.05em] text-muted mb-4">
-            Side Venture
+            REAL K-9
           </p>
           <h2 className="text-2xl font-medium text-fg">Dog Training</h2>
           <p className="mt-4 text-fg-sub leading-relaxed">
-            I run a professional balanced dog training business. I work with
-            dogs of all breeds and ages on obedience, behavior modification,
-            and building a healthy relationship between dog and owner.
+            Founder of REAL K-9 — Seattle-based professional dog training built
+            on focus, technique, and engagement. Service-level obedience,
+            behavior modification, and handler education.
           </p>
+          <div className="mt-4 flex gap-6 text-sm">
+            <div>
+              <span className="text-fg font-semibold text-base">250+</span>
+              <span className="block text-muted text-xs uppercase tracking-widest mt-0.5">Dogs Trained</span>
+            </div>
+            <div>
+              <span className="text-fg font-semibold text-base">8+</span>
+              <span className="block text-muted text-xs uppercase tracking-widest mt-0.5">Years</span>
+            </div>
+            <div>
+              <span className="text-fg font-semibold text-base">100%</span>
+              <span className="block text-muted text-xs uppercase tracking-widest mt-0.5">5-Star Reviews</span>
+            </div>
+          </div>
           <Button
             variant="ghost"
             href="https://real-k9.com"
             external
-            className="mt-4"
+            className="mt-5"
           >
             real-k9.com <ExternalLink size={14} />
           </Button>

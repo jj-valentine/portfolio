@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 type FooterLink = { label: string; href: string; external?: boolean };
 
@@ -18,9 +19,8 @@ const FOOTER_NAV: { heading: string; links: FooterLink[] }[] = [
     heading: "Connect",
     links: [
       { label: "GitHub", href: "https://github.com/jj-valentine", external: true },
-      { label: "LinkedIn", href: "https://linkedin.com/in/jamesvalentine", external: true },
-      { label: "X / Twitter", href: "https://x.com/jamesvalentine", external: true },
-      { label: "Email", href: "mailto:james@jamesvalentine.dev", external: true },
+      { label: "LinkedIn", href: "https://www.linkedin.com/in/jamesjovalentine/", external: true },
+      { label: "Email", href: "mailto:j@mesvalentine.com", external: true },
     ],
   },
   {
@@ -33,9 +33,8 @@ const FOOTER_NAV: { heading: string; links: FooterLink[] }[] = [
 
 const SOCIAL_ICONS = [
   { icon: Github, href: "https://github.com/jj-valentine", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/jamesvalentine", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/jamesvalentine", label: "X" },
-  { icon: Mail, href: "mailto:james@jamesvalentine.dev", label: "Email" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/jamesjovalentine/", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:j@mesvalentine.com", label: "Email" },
 ];
 
 export function Footer() {
@@ -46,15 +45,10 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
           {/* Logo column */}
           <div className="col-span-2">
-            <Link
-              href="/"
-              className="text-fg font-bold text-base tracking-[-0.5px]"
-            >
-              JV
-            </Link>
+            <Logo size="md" />
             <p className="mt-3 text-sm text-fg-muted max-w-[280px]">
-              Software engineer, educator, and entrepreneur building things that
-              matter.
+              Software engineer, educator, and dog trainer building things at
+              the intersection of software, science, and applied learning.
             </p>
             <div className="flex items-center gap-4 mt-5">
               {SOCIAL_ICONS.map(({ icon: Icon, href, label }) => (
@@ -106,7 +100,6 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            {/* Status dot */}
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />

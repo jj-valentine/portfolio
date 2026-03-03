@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ExternalLink, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/ui/Logo";
 
 const NAV_LINKS = [
   { label: "About", href: "/about" },
@@ -42,12 +43,7 @@ export function Nav() {
       <header className="sticky top-0 z-50 h-[74px]">
         <nav className="max-w-[1158px] mx-auto px-4 md:px-8 h-full flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-fg font-bold text-base tracking-[-0.5px] hover:opacity-80 transition-opacity"
-          >
-            JV
-          </Link>
+          <Logo size="md" />
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-6">

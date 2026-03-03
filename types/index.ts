@@ -26,4 +26,6 @@ export interface Project {
   github?: string;
   live?: string;
   featured?: boolean;
+  image?: string;
+  inProgress?: boolean;
 }
