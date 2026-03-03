@@ -2,33 +2,34 @@ import type { Project } from "@/types";
 
 export const PROJECTS: Project[] = [
   {
-    title: "real-k9.com",
+    title: "REAL K-9",
     description:
-      "Full-stack platform for my dog training business. Booking system, training content, and client management.",
+      "Professional dog training business serving Greater Seattle. Service-level obedience, behavior modification, and handler education. 250+ dogs trained, 100% 5-star reviews.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     live: "https://real-k9.com",
+    image: "/screenshots/realk9-dark-hero.png",
+    featured: true,
+  },
+  {
+    title: "AgentHQ",
+    description:
+      "Developer dashboard for orchestrating and monitoring Claude-powered AI agents. Tracks execution time, token usage, active agents, tasks-in-flight, and efficiency metrics across concurrent agent runs.",
+    tech: ["React", "TypeScript", "Vite", "Claude API", "Anthropic SDK"],
     featured: true,
   },
   {
     title: "Portfolio Site",
     description:
-      "This site — a Graphite-inspired dark portfolio with an MDX blog, animated role cycling, and syntax-highlighted code blocks.",
+      "This site — dark portfolio with an MDX blog, gooey text morphing, animated hero shapes, and syntax-highlighted code blocks.",
     tech: ["Next.js 15", "Tailwind v4", "Framer Motion", "MDX"],
     github: "https://github.com/jj-valentine/portfolio",
     featured: true,
   },
   {
-    title: "Physics Simulations",
+    title: "REAL K-9 Client Portal",
     description:
-      "Interactive physics simulations built with TypeScript and Canvas. Covers mechanics, electromagnetism, and wave phenomena.",
-    tech: ["TypeScript", "Canvas API", "React"],
-    github: "https://github.com/jj-valentine/physics-sims",
-  },
-  {
-    title: "CLI Task Manager",
-    description:
-      "A fast terminal-based task manager with project grouping, priority sorting, and Markdown export.",
-    tech: ["Rust", "SQLite", "clap"],
-    github: "https://github.com/jj-valentine/taskctl",
+      "Client-facing portal for REAL K-9 — scheduling, session notes, and training progress tracking.",
+    tech: ["Next.js", "TypeScript", "Tailwind"],
+    inProgress: true,
   },
 ];

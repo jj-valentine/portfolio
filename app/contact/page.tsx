@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { ContactForm } from "@/components/contact/ContactForm";
 
 export const metadata = {
@@ -8,9 +8,8 @@ export const metadata = {
 
 const SOCIALS = [
   { icon: Github, href: "https://github.com/jj-valentine", label: "GitHub" },
-  { icon: Linkedin, href: "https://linkedin.com/in/jamesvalentine", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/jamesvalentine", label: "X" },
-  { icon: Mail, href: "mailto:james@jamesvalentine.dev", label: "Email" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/jamesjovalentine/", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:j@mesvalentine.com", label: "Email" },
 ];
 
 export default function ContactPage() {
