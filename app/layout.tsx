@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { DM_Sans, Geist_Mono, Lora } from "next/font/google";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
@@ -14,6 +14,12 @@ const dmSans = DM_Sans({
 const geistMono = Geist_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+});
+
+const lora = Lora({
+  variable: "--font-prose",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 const SITE_URL = "https://james-valentine.com";
@@ -47,7 +53,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${geistMono.variable} ${lora.variable}`}>
       <body className="bg-bg text-fg antialiased">
         <AnnouncementBar />
         <Nav />
