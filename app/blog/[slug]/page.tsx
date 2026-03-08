@@ -10,13 +10,14 @@ import { formatDate } from "@/lib/utils";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return getAllPosts().map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   const post = posts.find((p) => p.slug === slug);
   if (!post) return {};
   return {
@@ -27,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
 
 export default async function BlogPost({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const source = getPostSource(slug);
+  const source = await getPostSource(slug);
   if (!source) notFound();
 
   const { content, frontmatter } = await compileMDX<{
