@@ -6,9 +6,9 @@ export const metadata = {
   description: "Posts about software engineering, physics, math, and more.",
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
-  const categories = getCategories();
+export default async function BlogPage() {
+  const posts = await getAllPosts();
+  const categories = await getCategories();
   const featured = posts.find((p) => p.featured) ?? posts[0];
 
   return (

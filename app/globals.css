@@ -36,52 +36,102 @@ body {
 
 /* Prose styles for MDX blog posts */
 .prose {
-  --tw-prose-body: var(--color-fg);
+  --tw-prose-body: rgba(255, 255, 255, 0.82);
   --tw-prose-headings: var(--color-fg);
   --tw-prose-links: var(--color-accent);
   --tw-prose-bold: var(--color-fg);
   --tw-prose-code: var(--color-fg);
   --tw-prose-quotes: var(--color-fg-sub);
-  --tw-prose-quote-borders: var(--color-surface);
-  color: var(--color-fg);
-  max-width: 72ch;
+  --tw-prose-quote-borders: var(--color-border);
+
+  font-family: var(--font-prose), Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.875;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 68ch;
+}
+
+.prose p {
+  margin-top: 0;
+  margin-bottom: 1.625em;
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
+  font-family: var(--font-sans);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--color-fg);
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 2.75em;
+  margin-bottom: 0.75em;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 25%, transparent);
+}
+
+.prose h3 {
+  font-size: 1.2rem;
   font-weight: 500;
-  letter-spacing: -0.025em;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
 .prose a {
   color: var(--color-accent);
   text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  transition: border-color 0.15s ease;
 }
 
 .prose a:hover {
-  text-decoration: underline;
+  border-bottom-color: var(--color-accent);
+}
+
+.prose strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+
+.prose p:first-of-type {
+  font-weight: 600;
+  color: var(--color-fg);
+}
+
+.prose em {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
 }
 
 .prose blockquote {
-  border-left: 2px solid var(--color-surface);
-  color: var(--color-fg-sub);
-  font-style: normal;
+  border-left: 3px solid var(--color-accent);
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  padding-left: 1.25em;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.625em;
 }
 
 .prose code {
   background: var(--color-surface);
   border-radius: var(--radius-sm);
   padding: 0.15em 0.35em;
-  font-size: 0.875em;
+  font-size: 0.85em;
   font-family: var(--font-mono);
+  color: var(--color-fg);
 }
 
 .prose pre {
   background: transparent !important;
   padding: 0 !important;
-  margin: 1.5em 0;
+  margin: 1.75em 0;
 }
 
 .prose pre code {
@@ -91,12 +141,23 @@ body {
   line-height: 1.7;
 }
 
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
 .prose img {
   border-radius: var(--radius-md);
 }
 
 .prose hr {
   border-color: var(--color-border);
+  margin: 2.5em 0;
 }
 
 /* rehype-pretty-code styles */
