@@ -85,8 +85,11 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
 
   return (
     <article className="max-w-[1158px] mx-auto px-4 md:px-8 py-20">
-      {/* eslint-disable-next-line @next/next/no-before-interactive-script-component */}
-      <script type="application/ld+json" suppressHydrationWarning>{articleSchema}</script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: articleSchema }}
+        suppressHydrationWarning
+      />
       <Link
         href="/blog"
         className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors mb-8"
