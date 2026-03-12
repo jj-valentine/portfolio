@@ -15,6 +15,8 @@ export async function generateStaticParams() {
   return posts.map((p) => ({ slug: p.slug }));
 }
 
+const SITE_URL = "https://james-valentine.com";
+
 export async function generateMetadata({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
   const posts = await getAllPosts();
@@ -23,6 +25,20 @@ export async function generateMetadata({ params }: { params: Promise<Params> }) 
   return {
     title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `${SITE_URL}/blog/${slug}`,
+      type: "article",
+      publishedTime: post.date,
+      authors: ["James Valentine"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+    },
   };
 }
 
@@ -56,8 +72,21 @@ export default async function BlogPost({ params }: { params: Promise<Params> }) 
     },
   });
 
+  const articleSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: frontmatter.date,
+    author: { "@type": "Person", name: "James Valentine", url: SITE_URL },
+    publisher: { "@type": "Person", name: "James Valentine", url: SITE_URL },
+    url: `${SITE_URL}/blog/${slug}`,
+  });
+
   return (
     <article className="max-w-[1158px] mx-auto px-4 md:px-8 py-20">
+      {/* eslint-disable-next-line @next/next/no-before-interactive-script-component */}
+      <script type="application/ld+json" suppressHydrationWarning>{articleSchema}</script>
       <Link
         href="/blog"
         className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors mb-8"
