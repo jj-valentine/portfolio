@@ -1,0 +1,55 @@
+Portfolio Site Tasks:
+
+  Blog Posts:
+    ☐ Publish Cerebellum blog post (light edits from Reddit draft → MDX, push to blog-content repo) @created(2026-03-17)
+    ☐ Publish AgentHQ/CEREBRO post ("Anyone Can Build Anything" — final look + frontmatter → push to blog-content repo) @created(2026-03-17)
+
+  Blog (Site):
+    ☐ "Latest Posts" section: dynamically show most recent post @created(2026-03-17)
+    ☐ Featured blog card: make it stand out more — research 21st.dev for card inspiration @created(2026-03-17)
+    ☐ "Latest posts" section: add visual cards with borders per post (currently hard to distinguish text/link/module) @created(2026-03-17)
+
+  Landing Page:
+    ☐ Metrics: update copy to accurate values and add scroll/appear animation (à la graphite.com brand ticker) @created(2026-03-17)
+      - 12+ years full-stack engineering
+      - 8+ years expert dog handling/training
+      - 20+ years teaching complex subjects
+      - 250+ dogs trained
+    ☐ Badges: replace single badge with multiple icon badges — Software, AI, Dogs, Teaching, Jiu Jitsu, etc. @created(2026-03-17)
+      - Find a cool icon badge style online to reference (not emojis)
+    ☐ Move content up so metrics are visible on mobile without scrolling @created(2026-03-17)
+    ☐ Increase scale of everything on desktop landing page @created(2026-03-17)
+      - Decide: capitalize name? (depends on new font)
+    ☐ Slow down subtitle cycling animation @created(2026-03-17)
+    ☐ Add space between name and animated subtitle @created(2026-03-17)
+
+  Projects Page:
+    ✔ Add Cerebellum to projects list (content/projects.ts) @created(2026-03-17) @done(2026-03-17)
+    ✔ Add mango to projects list (content/projects.ts) @created(2026-03-17) @done(2026-03-17)
+    ☐ Add project routes: /cerebro, /mango, /cerebellum (maybe /portfolio — TBD) @created(2026-03-17)
+      - /cerebro: no public repo yet; link TBD
+    ☐ GitHub data fetcher: live stars, logo, README content per linked repo (cerebellum, mango) @created(2026-03-17)
+      - Use README as page body content for project routes
+      - Revalidate via ISR so changes to repos auto-reflect on site
+    ☐ Expand project card size — show full height of website preview @created(2026-03-17)
+    ☐ Add AgentHQ dashboard screenshot to AgentHQ project card @created(2026-03-17)
+    ☐ Remove "Vercel" from REAL K-9 tech stack @created(2026-03-17)
+    ☐ UW/teaching background: decide approach — subtle callout in About or bio section @created(2026-03-17)
+      - Physics Education Group research + TA'ing at UW
+      - Private instructor (15+ years ago — keep subtle)
+      - Use UW logo only if not tacky in context
+
+  Nav Bar:
+    ☐ Add GitHub icon/link to nav (match style of real-k9.com link icon) @created(2026-03-17)
+    ☐ Logo: increase size or draft 2–3 new minimal/sleek concepts (use frontend-design skill) @created(2026-03-17)
+    ☐ Favicon: update to small version of logo @created(2026-03-17)
+    ☐ Featured Work cards: expand to show full card/preview height @created(2026-03-17)
+
+  Design / Global:
+    ☐ Change accent color — confirm color with James first @created(2026-03-17)
+    ☐ Font: OldSchoolGrotesk for titles — confirm license/source @created(2026-03-17)
+    ☐ Font: identify secondary font for body/UI use @created(2026-03-17)
+    ☐ Add animation + blur to hover borders @created(2026-03-17)
+
+  Mobile:
+    ☐ Fix nav menu (consider removing announcement/header bar) @created(2026-03-17)
