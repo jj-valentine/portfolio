@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { Circle } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
@@ -118,15 +119,11 @@ export function Hero() {
         className="mt-12 flex items-center justify-center gap-6 md:gap-10 flex-wrap pt-2"
       >
         {STATS.map((stat, i) => (
-          <>
+          <React.Fragment key={stat.num}>
             {i > 0 && (
-              <span
-                key={`divider-${i}`}
-                className="hidden md:block w-px h-6 bg-border"
-              />
+              <span className="hidden md:block w-px h-6 bg-border" />
             )}
             <motion.div
-              key={stat.num}
               initial={reduceMotion ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.5 + i * 0.12 }}
@@ -137,7 +134,7 @@ export function Hero() {
                 {stat.label}
               </span>
             </motion.div>
-          </>
+          </React.Fragment>
         ))}
       </motion.div>
     </div>

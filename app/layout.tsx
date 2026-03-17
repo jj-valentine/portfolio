@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { DM_Sans, Geist_Mono, Lora } from "next/font/google";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
