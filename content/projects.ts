@@ -5,7 +5,7 @@ export const PROJECTS: Project[] = [
     title: "REAL K-9",
     description:
       "Professional dog training business serving Greater Seattle. Service-level obedience, behavior modification, and handler education. 250+ dogs trained, 100% 5-star reviews.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     live: "https://real-k9.com",
     image: "/screenshots/realk9-dark-hero.png",
     featured: true,

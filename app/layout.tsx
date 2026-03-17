@@ -159,7 +159,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(WEBSITE_SCHEMA) }}
         />
-        <AnnouncementBar />
         <Nav />
         <main className="min-h-screen">{children}</main>
         <Footer />

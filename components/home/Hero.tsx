@@ -60,7 +60,7 @@ export function Hero() {
         variants={fadeUpVariants}
         initial={reduceMotion ? "visible" : "hidden"}
         animate="visible"
-        className="h-[70px] md:h-[90px] relative w-full mt-4"
+        className="h-[70px] md:h-[90px] relative w-full mt-8"
       >
         <GooeyText
           texts={[
@@ -72,7 +72,7 @@ export function Hero() {
             "Entrepreneur",
           ]}
           morphTime={1}
-          cooldownTime={0.25}
+          cooldownTime={2.5}
           textClassName="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300"
           className="w-full h-full"
         />

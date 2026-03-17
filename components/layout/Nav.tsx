@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ExternalLink, Menu, X } from "lucide-react";
+import { ExternalLink, Github, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Logo } from "@/components/ui/Logo";
 
@@ -66,6 +66,15 @@ export function Nav() {
           {/* Desktop right actions */}
           <div className="hidden md:flex items-center gap-3">
             <a
+              href="https://github.com/jj-valentine"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 h-[42px] px-4 text-sm font-medium text-fg-muted bg-surface border border-[#3d3d3d] rounded-[8px] hover:border-[#555] hover:bg-[#2a2a2a] transition-all duration-150"
+              aria-label="GitHub"
+            >
+              <Github size={15} />
+            </a>
+            <a
               href="https://real-k9.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -109,6 +118,15 @@ export function Nav() {
                 </Link>
               ))}
               <hr className="border-border" />
+              <a
+                href="https://github.com/jj-valentine"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-lg text-fg-muted"
+              >
+                GitHub
+                <Github size={16} />
+              </a>
               <a
                 href="https://real-k9.com"
                 target="_blank"
