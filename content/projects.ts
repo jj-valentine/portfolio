@@ -11,11 +11,11 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    title: "AgentHQ",
+    title: "Cerebro",
     description:
       "Developer dashboard for orchestrating and monitoring Claude-powered AI agents. Tracks execution time, token usage, active agents, tasks-in-flight, and efficiency metrics across concurrent agent runs.",
     tech: ["React", "TypeScript", "Vite", "Claude API", "Anthropic SDK"],
-    featured: true,
+    inProgress: true,
   },
   {
     title: "Cerebellum",
@@ -31,6 +31,14 @@ export const PROJECTS: Project[] = [
       "Self-hosted Claude-powered daily digest. Fetches YouTube transcripts, RSS feeds, JSON APIs, and JS-rendered pages in parallel, runs them through Claude agents, deduplicates across runs, and delivers one sharp email via Resend — unattended, daily.",
     tech: ["Python", "Claude API", "Resend", "GitHub Actions", "Playwright"],
     github: "https://github.com/jj-valentine/mango",
+    featured: true,
+  },
+  {
+    title: "markdown-md",
+    description:
+      "Desktop markdown editor that adds annotations, highlights, and rich overlays on plain .md files — without breaking the format underneath.",
+    tech: ["Electron", "React", "TypeScript", "Tiptap"],
+    github: "https://github.com/jj-valentine/markdown-md",
     featured: true,
   },
   {
